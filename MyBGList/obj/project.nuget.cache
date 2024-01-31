@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "BTC65qi5vIpiBK1Xi9iW2ZaT4XOe4GiwCVliVaY0gTyzp8eQ12hcQ53oe72kxzWLwINV2WEdh/PkYFCMiUD+Zw==",
+  "success": true,
+  "projectFilePath": "/Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/MyBGList.csproj",
+  "expectedPackageFiles": [
+    "/Users/redouanejnah/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/Users/redouanejnah/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/redouanejnah/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "/Users/redouanejnah/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "/Users/redouanejnah/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "/Users/redouanejnah/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
