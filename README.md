@@ -1,0 +1,2 @@
+# BGG-API
+REST API using ASP.NET Core
