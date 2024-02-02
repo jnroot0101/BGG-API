@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+m6i0r0NVIZD7O3XQSSZmrH/M1WEk25iwaLaafxcLYAvD+y/VIiUYmWmKZQa5f3CnbzDSPkOoKxSxvMjdkJ70A==",
+  "dgSpecHash": "ivsGjnjaUnbw5mUNobT8wkdckTNiXYdNPdwKv4rT1UhEl6Azqah+q8x/OJJ8qJdqgDQzcoRRrpih8Eyowt9dYQ==",
   "success": true,
   "projectFilePath": "/Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/MyBGList.csproj",
   "expectedPackageFiles": [
+    "/Users/redouanejnah/.nuget/packages/csvhelper/30.0.1/csvhelper.30.0.1.nupkg.sha512",
     "/Users/redouanejnah/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/redouanejnah/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
     "/Users/redouanejnah/.nuget/packages/microsoft.data.sqlclient/2.1.4/microsoft.data.sqlclient.2.1.4.nupkg.sha512",
