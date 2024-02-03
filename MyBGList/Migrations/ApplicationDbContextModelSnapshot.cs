@@ -30,10 +30,6 @@ namespace MyBGList.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("AlternateNames")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
                     b.Property<int>("BGGRank")
                         .HasColumnType("int");
 
@@ -43,13 +39,6 @@ namespace MyBGList.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Designer")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<int>("Flags")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("LastModifiedDate")
                         .HasColumnType("datetime2");
@@ -72,9 +61,6 @@ namespace MyBGList.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("PlayTime")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PublisherId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("RatingAverage")
@@ -139,18 +125,11 @@ namespace MyBGList.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Flags")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("LastModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("Notes")
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -170,18 +149,11 @@ namespace MyBGList.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Flags")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("LastModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("Notes")
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 

@@ -38,12 +38,4 @@ public class BoardGame
     public ICollection<BoardGames_Domains>? BoardGames_Domains { get; set; }
 
     public ICollection<BoardGames_Mechanics>? BoardGames_Mechanics { get; set; }
-
-    [MaxLength(200)] public string? AlternateNames { get; set; }
-
-    [MaxLength(200)] public string? Designer { get; set; }
-
-    [Required] public int Flags { get; set; }
-
-    [Required] public int PublisherId { get; set; }
 }
