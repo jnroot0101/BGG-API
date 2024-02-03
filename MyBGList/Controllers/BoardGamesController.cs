@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq.Dynamic.Core;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyBGList.DTO;
 using MyBGList.Models;
-using System.Linq.Dynamic.Core;
 
 namespace MyBGList.Controllers;
 
@@ -27,10 +27,15 @@ public class BoardGamesController : ControllerBase
         int pageIndex = 0,
         int pageSize = 10,
         string? sortColumn = "Name",
-        string? sortOrder = "ASC")
+        string? sortOrder = "ASC",
+        string? filterQuery = null)
     {
-        var query = _context.BoardGames
-            .OrderBy($"{sortColumn} {sortOrder}")
+        var query = _context.BoardGames.AsQueryable();
+        if (!string.IsNullOrEmpty(filterQuery))
+            query = query.Where(b => b.Name.Contains(filterQuery));
+
+        var recordCount = await query.CountAsync();
+        query = query.OrderBy($"{sortColumn} {sortOrder}")
             .Skip(pageIndex * pageSize)
             .Take(pageSize);
 
@@ -39,7 +44,7 @@ public class BoardGamesController : ControllerBase
             Data = await query.ToArrayAsync(),
             PageIndex = pageIndex,
             PageSize = pageSize,
-            RecordCount = await _context.BoardGames.CountAsync(),
+            RecordCount = recordCount,
             Links = new List<LinkDTO>
             {
                 new(
