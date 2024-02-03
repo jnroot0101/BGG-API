@@ -61,3 +61,4 @@
 /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/obj/Debug/net6.0/MyBGList.pdb
 /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/obj/Debug/net6.0/MyBGList.genruntimeconfig.cache
 /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/obj/Debug/net6.0/ref/MyBGList.dll
+/Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/bin/Debug/net6.0/System.Linq.Dynamic.Core.dll
