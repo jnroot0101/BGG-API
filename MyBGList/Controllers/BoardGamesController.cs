@@ -1,6 +1,8 @@
-﻿using System.Linq.Dynamic.Core;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Linq.Dynamic.Core;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MyBGList.Attributes;
 using MyBGList.DTO;
 using MyBGList.Models;
 
@@ -25,9 +27,9 @@ public class BoardGamesController : ControllerBase
     [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 60)]
     public async Task<RestDTO<BoardGame[]>> Get(
         int pageIndex = 0,
-        int pageSize = 10,
-        string? sortColumn = "Name",
-        string? sortOrder = "ASC",
+        [Range(1, 100)] int pageSize = 10,
+       [SortColumnValidator(typeof(BoardGameDto))] string? sortColumn = "Name",
+        [SortOrderValidator] string? sortOrder = "ASC",
         string? filterQuery = null)
     {
         var query = _context.BoardGames.AsQueryable();
@@ -90,6 +92,36 @@ public class BoardGamesController : ControllerBase
                         Request.Scheme)!,
                     "self",
                     "POST")
+            }
+        };
+    }
+
+    [HttpDelete(Name = "DeleteBoardGame")]
+    [ResponseCache(NoStore = true)]
+    public async Task<RestDTO<BoardGame?>> Delete(int id)
+    {
+        var boardgame = await _context.BoardGames
+            .Where(b => b.Id == id)
+            .FirstOrDefaultAsync();
+        if (boardgame != null)
+        {
+            _context.BoardGames.Remove(boardgame);
+            await _context.SaveChangesAsync();
+        }
+
+        return new RestDTO<BoardGame?>
+        {
+            Data = boardgame,
+            Links = new List<LinkDTO>
+            {
+                new(
+                    Url.Action(
+                        null,
+                        "BoardGames",
+                        id,
+                        Request.Scheme)!,
+                    "self",
+                    "Delete")
             }
         };
     }
