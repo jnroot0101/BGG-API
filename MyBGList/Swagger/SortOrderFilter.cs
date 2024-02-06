@@ -11,6 +11,10 @@ public class SortOrderFilter : IParameterFilter
     {
         var attributes = context.ParameterInfo?
             .GetCustomAttributes(true)
+            .Union(
+                context.ParameterInfo.ParameterType.GetProperties()
+                    .Where(p => p.Name == parameter.Name)
+                    .SelectMany(p => p.GetCustomAttributes(true)))
             .OfType<SortOrderValidatorAttribute>();
 
         if (attributes != null)
