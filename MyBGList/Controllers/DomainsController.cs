@@ -80,7 +80,7 @@ public class DomainsController : ControllerBase
                     Url.Action(
                         null,
                         "Domains",
-                        domain,
+                        model,
                         Request.Scheme)!,
                     "self",
                     "POST")
