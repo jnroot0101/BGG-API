@@ -1,4 +1,4 @@
-﻿using System.Linq.Dynamic.Core;
+using System.Linq.Dynamic.Core;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyBGList.DTO;
@@ -8,34 +8,34 @@ namespace MyBGList.Controllers;
 
 [Route("[controller]")]
 [ApiController]
-public class BoardGamesController : ControllerBase
+public class DomainsController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
-    private readonly ILogger<BoardGamesController> _logger;
+    private readonly ILogger<DomainsController> _logger;
 
-    public BoardGamesController(
+    public DomainsController(
         ApplicationDbContext context,
-        ILogger<BoardGamesController> logger)
+        ILogger<DomainsController> logger)
     {
         _context = context;
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetBoardGames")]
+    [HttpGet(Name = "GetDomains")]
     [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 60)]
-    public async Task<RestDTO<BoardGame[]>> Get(
-        [FromQuery] RequestDTO<BoardGameDto> input)
+    public async Task<RestDTO<Domain[]>> Get(
+        [FromQuery] RequestDTO<DomainDTO> input)
     {
-        var query = _context.BoardGames.AsQueryable();
+        var query = _context.Domains.AsQueryable();
         if (!string.IsNullOrEmpty(input.FilterQuery))
-            query = query.Where(b => b.Name.Contains(input.FilterQuery));
+            query = query.Where(d => d.Name.Contains(input.FilterQuery));
 
         var recordCount = await query.CountAsync();
         query = query.OrderBy($"{input.SortColumn} {input.SortOrder}")
             .Skip(input.PageIndex * input.PageSize)
             .Take(input.PageSize);
 
-        return new RestDTO<BoardGame[]>
+        return new RestDTO<Domain[]>
         {
             Data = await query.ToArrayAsync(),
             PageIndex = input.PageIndex,
@@ -46,7 +46,7 @@ public class BoardGamesController : ControllerBase
                 new(
                     Url.Action(
                         null,
-                        "BoardGames",
+                        "Domains",
                         new { input.PageIndex, input.PageSize },
                         Request.Scheme)!,
                     "self",
@@ -55,34 +55,32 @@ public class BoardGamesController : ControllerBase
         };
     }
 
-    [HttpPost(Name = "UpdateBoardGame")]
+    [HttpPost(Name = "UpdateDomain")]
     [ResponseCache(NoStore = true)]
-    public async Task<RestDTO<BoardGame?>> Post(BoardGameDto model)
+    public async Task<RestDTO<Domain?>> Post(DomainDTO model)
     {
-        var boardgame = await _context.BoardGames
-            .Where(b => b.Id == model.Id)
+        var domain = await _context.Domains
+            .Where(d => d.Id == model.Id)
             .FirstOrDefaultAsync();
-        if (boardgame != null)
+
+        if (domain != null)
         {
-            if (!string.IsNullOrEmpty(model.Name))
-                boardgame.Name = model.Name;
-            if (model.Year.HasValue && model.Year.Value > 0)
-                boardgame.Year = model.Year.Value;
-            boardgame.LastModifiedDate = DateTime.Now;
-            _context.BoardGames.Update(boardgame);
+            if (!string.IsNullOrEmpty(model.Name)) domain.Name = model.Name;
+
+            _context.Update(domain);
             await _context.SaveChangesAsync();
         }
 
-        return new RestDTO<BoardGame?>
+        return new RestDTO<Domain?>
         {
-            Data = boardgame,
+            Data = domain,
             Links = new List<LinkDTO>
             {
                 new(
                     Url.Action(
                         null,
-                        "BoardGames",
-                        model,
+                        "Domains",
+                        domain,
                         Request.Scheme)!,
                     "self",
                     "POST")
@@ -90,32 +88,33 @@ public class BoardGamesController : ControllerBase
         };
     }
 
-    [HttpDelete(Name = "DeleteBoardGame")]
+    [HttpDelete(Name = "DeleteDomain")]
     [ResponseCache(NoStore = true)]
-    public async Task<RestDTO<BoardGame?>> Delete(int id)
+    public async Task<RestDTO<Domain?>> Delete(int id)
     {
-        var boardgame = await _context.BoardGames
-            .Where(b => b.Id == id)
+        var domain = await _context.Domains
+            .Where(d => d.Id == id)
             .FirstOrDefaultAsync();
-        if (boardgame != null)
+
+        if (domain != null)
         {
-            _context.BoardGames.Remove(boardgame);
+            _context.Domains.Remove(domain);
             await _context.SaveChangesAsync();
         }
 
-        return new RestDTO<BoardGame?>
+        return new RestDTO<Domain?>
         {
-            Data = boardgame,
+            Data = domain,
             Links = new List<LinkDTO>
             {
                 new(
                     Url.Action(
                         null,
-                        "BoardGames",
+                        "Domains",
                         id,
                         Request.Scheme)!,
                     "self",
-                    "Delete")
+                    "DELETE")
             }
         };
     }
