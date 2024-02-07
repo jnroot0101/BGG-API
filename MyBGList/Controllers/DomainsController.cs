@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Linq.Dynamic.Core;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,9 +24,29 @@ public class DomainsController : ControllerBase
 
     [HttpGet(Name = "GetDomains")]
     [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 60)]
-    public async Task<RestDTO<Domain[]>> Get(
+    public async Task<ActionResult<RestDTO<Domain[]>>> Get(
         [FromQuery] RequestDTO<DomainDTO> input)
     {
+        if (!ModelState.IsValid)
+        {
+            var details = new ValidationProblemDetails(ModelState);
+            details.Extensions["traceId"] = Activity.Current?.Id
+                                            ?? HttpContext.TraceIdentifier;
+            if (ModelState.Keys.Any(k => k == "PageSize"))
+            {
+                details.Type = "https://tools.ietf.org/html/rfc7231#section-6.6.2";
+                details.Status = StatusCodes.Status501NotImplemented;
+                return new ObjectResult(details)
+                {
+                    StatusCode = StatusCodes.Status501NotImplemented
+                };
+            }
+
+            details.Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1";
+            details.Status = StatusCodes.Status400BadRequest;
+            return new BadRequestObjectResult(details);
+        }
+
         var query = _context.Domains.AsQueryable();
         if (!string.IsNullOrEmpty(input.FilterQuery))
             query = query.Where(d => d.Name.Contains(input.FilterQuery));
