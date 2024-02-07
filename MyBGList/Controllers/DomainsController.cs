@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.Linq.Dynamic.Core;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MyBGList.Attributes;
 using MyBGList.DTO;
 using MyBGList.Models;
 
@@ -24,6 +25,7 @@ public class DomainsController : ControllerBase
 
     [HttpGet(Name = "GetDomains")]
     [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 60)]
+    [ManualValidationFilter]
     public async Task<ActionResult<RestDTO<Domain[]>>> Get(
         [FromQuery] RequestDTO<DomainDTO> input)
     {
