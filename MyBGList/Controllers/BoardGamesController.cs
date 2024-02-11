@@ -1,6 +1,7 @@
 ﻿using System.Linq.Dynamic.Core;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MyBGList.Constants;
 using MyBGList.DTO;
 using MyBGList.Models;
 
@@ -26,7 +27,7 @@ public class BoardGamesController : ControllerBase
     public async Task<RestDTO<BoardGame[]>> Get(
         [FromQuery] RequestDTO<BoardGameDto> input)
     {
-        _logger.LogInformation("Get method started.");
+        _logger.LogInformation(CustomLogEvents.BoardGamesController_Get, "Get method started.");
         var query = _context.BoardGames.AsQueryable();
         if (!string.IsNullOrEmpty(input.FilterQuery))
             query = query.Where(b => b.Name.Contains(input.FilterQuery));
@@ -103,7 +104,7 @@ public class BoardGamesController : ControllerBase
             _context.BoardGames.Remove(boardgame);
             await _context.SaveChangesAsync();
         }
-        
+
         return new RestDTO<BoardGame?>
         {
             Data = boardgame,

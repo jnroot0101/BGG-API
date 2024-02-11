@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MyBGList.Constants;
 using MyBGList.Models;
 using MyBGList.Swagger;
+using Serilog;
+using Serilog.Sinks.MSSqlServer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +15,25 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Logging
     .ClearProviders()
     .AddSimpleConsole()
-    .AddDebug();
+    .AddDebug()
+    .AddApplicationInsights(
+        telemetry => telemetry.ConnectionString =
+            builder
+                .Configuration["Azure:ApplicationInsights:ConnectionString"],
+        loggerOptions => { });
+
+builder.Host.UseSerilog((ctx, lc) =>
+    {
+        lc.ReadFrom.Configuration(ctx.Configuration);
+        lc.WriteTo.MSSqlServer(
+            ctx.Configuration.GetConnectionString("DefaultConnection"),
+            new MSSqlServerSinkOptions
+            {
+                TableName = "LogEvents",
+                AutoCreateSqlTable = true
+            });
+    },
+    writeToProviders: true);
 
 builder.Services.AddCors(options =>
 {
@@ -93,6 +114,12 @@ app.MapGet("/error",
                                         ?? context.TraceIdentifier;
         details.Type = "https://tools.ietf.org/html/rfc7231#section-6.6.1";
         details.Status = StatusCodes.Status500InternalServerError;
+
+        app.Logger.LogError(
+            CustomLogEvents.Error_Get,
+            exceptionHandler?.Error,
+            "An unhandled exception occured.");
+
         return Results.Problem(details);
     });
 
