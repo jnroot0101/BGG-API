@@ -9,6 +9,10 @@ using MyBGList.Swagger;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Logging
+    .ClearProviders()
+    .AddSimpleConsole()
+    .AddDebug();
 
 builder.Services.AddCors(options =>
 {
