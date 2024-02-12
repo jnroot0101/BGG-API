@@ -1,0 +1,46 @@
+2024-02-12 20:37:12.751 +01:00 [INF] Now listening on: https://localhost:40443
+2024-02-12 20:37:12.799 +01:00 [INF] Now listening on: http://localhost:40080
+2024-02-12 20:37:12.802 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-12 20:37:12.802 +01:00 [INF] Hosting environment: Development
+2024-02-12 20:37:12.802 +01:00 [INF] Content root path: /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/
+2024-02-12 20:37:13.953 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:40443/swagger/index.html - -
+2024-02-12 20:37:14.139 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:40443/swagger/index.html - - - 200 - text/html;charset=utf-8 189.1185ms
+2024-02-12 20:37:14.396 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - -
+2024-02-12 20:37:14.565 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 169.6970ms
+2024-02-12 20:37:48.127 +01:00 [INF] Application is shutting down...
+21:48:41 [INF] [Redouanes-MacBook-Pro #1] Now listening on: https://localhost:40443
+21:48:41 [INF] [Redouanes-MacBook-Pro #1] Now listening on: http://localhost:40080
+21:48:41 [INF] [Redouanes-MacBook-Pro #1] Application started. Press Ctrl+C to shut down.
+21:48:41 [INF] [Redouanes-MacBook-Pro #1] Hosting environment: Development
+21:48:41 [INF] [Redouanes-MacBook-Pro #1] Content root path: /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/
+21:48:42 [INF] [Redouanes-MacBook-Pro #18] Request starting HTTP/1.1 GET https://localhost:40443/swagger/index.html - -
+21:48:42 [INF] [Redouanes-MacBook-Pro #18] Request finished HTTP/1.1 GET https://localhost:40443/swagger/index.html - - - 200 - text/html;charset=utf-8 157.7438ms
+21:48:42 [INF] [Redouanes-MacBook-Pro #18] Request starting HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - -
+21:48:42 [INF] [Redouanes-MacBook-Pro #18] Request finished HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 150.8171ms
+21:49:00 [INF] [Redouanes-MacBook-Pro #20] Request starting HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - -
+21:49:00 [INF] [Redouanes-MacBook-Pro #20] Request finished HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 11.2605ms
+21:49:05 [INF] [Redouanes-MacBook-Pro #20] Request starting HTTP/1.1 GET https://localhost:40443/swagger/swagger.json - -
+21:49:05 [INF] [Redouanes-MacBook-Pro #20] Request finished HTTP/1.1 GET https://localhost:40443/swagger/swagger.json - - - 404 0 - 4.9736ms
+21:49:13 [INF] [Redouanes-MacBook-Pro #13] Request starting HTTP/1.1 GET https://localhost:40443/swagger/index.html?urls.primaryName=MyBGList%20v2 - -
+21:49:13 [INF] [Redouanes-MacBook-Pro #13] Request finished HTTP/1.1 GET https://localhost:40443/swagger/index.html?urls.primaryName=MyBGList%20v2 - - - 200 - text/html;charset=utf-8 2.6161ms
+21:49:13 [INF] [Redouanes-MacBook-Pro #19] Request starting HTTP/1.1 GET https://localhost:40443/swagger/favicon-16x16.png - -
+21:49:13 [INF] [Redouanes-MacBook-Pro #19] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+21:49:13 [INF] [Redouanes-MacBook-Pro #19] Request finished HTTP/1.1 GET https://localhost:40443/swagger/favicon-16x16.png - - - 0 665 image/png 13.9497ms
+21:49:13 [INF] [Redouanes-MacBook-Pro #4] Request starting HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json?urls.primaryName=MyBGList%20v2 - -
+21:49:13 [INF] [Redouanes-MacBook-Pro #4] Request finished HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json?urls.primaryName=MyBGList%20v2 - - - 200 - application/json;charset=utf-8 7.5005ms
+21:49:32 [INF] [Redouanes-MacBook-Pro #19] Request starting HTTP/1.1 GET https://localhost:40443/swagger/index.html?urls.primaryName=MyBGList%20v2 - -
+21:49:32 [INF] [Redouanes-MacBook-Pro #19] Request finished HTTP/1.1 GET https://localhost:40443/swagger/index.html?urls.primaryName=MyBGList%20v2 - - - 200 - text/html;charset=utf-8 5.7982ms
+21:49:54 [INF] [Redouanes-MacBook-Pro #19] Request starting HTTP/1.1 GET https://localhost:40443/cache/test/2 - -
+21:49:54 [INF] [Redouanes-MacBook-Pro #19] Executing endpoint 'HTTP: GET /cache/test/2'
+21:49:54 [INF] [Redouanes-MacBook-Pro #19] Executed endpoint 'HTTP: GET /cache/test/2'
+21:49:54 [INF] [Redouanes-MacBook-Pro #19] Request finished HTTP/1.1 GET https://localhost:40443/cache/test/2 - - - 200 0 - 29.8801ms
+21:50:28 [INF] [Redouanes-MacBook-Pro #4] Request starting HTTP/1.1 GET https://localhost:40443/cache/test/1 - -
+21:50:28 [INF] [Redouanes-MacBook-Pro #4] Executing endpoint 'HTTP: GET /cache/test/1'
+21:50:28 [INF] [Redouanes-MacBook-Pro #4] Executing result with status code '200'.
+21:50:28 [INF] [Redouanes-MacBook-Pro #4] Executed endpoint 'HTTP: GET /cache/test/1'
+21:50:28 [INF] [Redouanes-MacBook-Pro #4] Request finished HTTP/1.1 GET https://localhost:40443/cache/test/1 - - - 200 0 - 37.0535ms
+21:50:37 [INF] [Redouanes-MacBook-Pro #14] Request starting HTTP/1.1 GET https://localhost:40443/cache/test/2 - -
+21:50:37 [INF] [Redouanes-MacBook-Pro #14] Executing endpoint 'HTTP: GET /cache/test/2'
+21:50:37 [INF] [Redouanes-MacBook-Pro #14] Executed endpoint 'HTTP: GET /cache/test/2'
+21:50:37 [INF] [Redouanes-MacBook-Pro #14] Request finished HTTP/1.1 GET https://localhost:40443/cache/test/2 - - - 200 0 - 1.0176ms
+21:57:22 [INF] [Redouanes-MacBook-Pro #42] Application is shutting down...

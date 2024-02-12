@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2DRk4gY0K4SF6C2ahiVuoW9zolSuF8OkZbFpdRN7nZmlMbAQGYzA4dZFVQJSeIkf9xRDFitAU9gmpHJ3t9gvoQ==",
+  "dgSpecHash": "Rz7MgYYsA18FNliubal5fxg06YcKfhJOHjiC8+scBeBr9qA5CxlXyQe7EWqU4Ip8/zO2t1UQHsjuNfzxo5F90w==",
   "success": true,
   "projectFilePath": "/Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/MyBGList.csproj",
   "expectedPackageFiles": [
@@ -73,6 +73,8 @@
     "/Users/redouanejnah/.nuget/packages/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "/Users/redouanejnah/.nuget/packages/serilog/2.12.0/serilog.2.12.0.nupkg.sha512",
     "/Users/redouanejnah/.nuget/packages/serilog.aspnetcore/6.0.1/serilog.aspnetcore.6.0.1.nupkg.sha512",
+    "/Users/redouanejnah/.nuget/packages/serilog.enrichers.environment/2.2.0/serilog.enrichers.environment.2.2.0.nupkg.sha512",
+    "/Users/redouanejnah/.nuget/packages/serilog.enrichers.thread/3.1.0/serilog.enrichers.thread.3.1.0.nupkg.sha512",
     "/Users/redouanejnah/.nuget/packages/serilog.extensions.hosting/5.0.1/serilog.extensions.hosting.5.0.1.nupkg.sha512",
     "/Users/redouanejnah/.nuget/packages/serilog.extensions.logging/3.1.0/serilog.extensions.logging.3.1.0.nupkg.sha512",
     "/Users/redouanejnah/.nuget/packages/serilog.formatting.compact/1.1.0/serilog.formatting.compact.1.1.0.nupkg.sha512",

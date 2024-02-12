@@ -1,3 +1,4 @@
+using System.Data;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Diagnostics;
@@ -25,12 +26,32 @@ builder.Logging
 builder.Host.UseSerilog((ctx, lc) =>
     {
         lc.ReadFrom.Configuration(ctx.Configuration);
+        lc.Enrich.WithMachineName();
+        lc.Enrich.WithThreadId();
+        lc.WriteTo.File("Logs/log.txt",
+            outputTemplate:
+            "{Timestamp:HH:mm:ss} [{Level:u3}] " +
+            "[{MachineName} #{ThreadId}] " +
+            "{Message:lj}{NewLine}{Exception}",
+            rollingInterval: RollingInterval.Day);
         lc.WriteTo.MSSqlServer(
             ctx.Configuration.GetConnectionString("DefaultConnection"),
             new MSSqlServerSinkOptions
             {
                 TableName = "LogEvents",
                 AutoCreateSqlTable = true
+            },
+            columnOptions: new ColumnOptions
+            {
+                AdditionalColumns = new List<SqlColumn>
+                {
+                    new()
+                    {
+                        ColumnName = "SourceContext",
+                        PropertyName = "SourceContext",
+                        DataType = SqlDbType.NVarChar
+                    }
+                }
             });
     },
     writeToProviders: true);
@@ -139,6 +160,19 @@ app.MapGet("/cod/test",
                      "</script>" +
                      "<noscript>Your client does not support JavaScript</noscript>",
             "text/html"));
+
+app.MapGet("/cache/test/1",
+    [EnableCors("AnyOrigin")](HttpContext context) =>
+    {
+        context.Response.Headers["cache-control"] = "no-cache, no-store";
+        return Results.Ok();
+    });
+app.MapGet("/cache/test/2",
+    [EnableCors("AnyOrigin")]
+    () =>
+    {
+        Results.Ok();
+    });
 
 // Controllers
 app.MapControllers().RequireCors("AnyOrigin");
