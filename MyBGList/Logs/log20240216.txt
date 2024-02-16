@@ -1,0 +1,73 @@
+14:54:44 [INF] [Redouanes-MacBook-Pro #1] Now listening on: https://localhost:40443
+14:54:44 [INF] [Redouanes-MacBook-Pro #1] Now listening on: http://localhost:40080
+14:54:44 [INF] [Redouanes-MacBook-Pro #1] Application started. Press Ctrl+C to shut down.
+14:54:44 [INF] [Redouanes-MacBook-Pro #1] Hosting environment: Development
+14:54:44 [INF] [Redouanes-MacBook-Pro #1] Content root path: /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/
+14:54:47 [INF] [Redouanes-MacBook-Pro #20] Request starting HTTP/1.1 GET https://localhost:40443/swagger/index.html - -
+14:54:47 [INF] [Redouanes-MacBook-Pro #20] Request finished HTTP/1.1 GET https://localhost:40443/swagger/index.html - - - 200 - text/html;charset=utf-8 119.6673ms
+14:54:47 [INF] [Redouanes-MacBook-Pro #19] Request starting HTTP/1.1 GET https://localhost:40443/swagger/swagger-ui-bundle.js - -
+14:54:47 [INF] [Redouanes-MacBook-Pro #13] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+14:54:47 [INF] [Redouanes-MacBook-Pro #13] Request finished HTTP/1.1 GET https://localhost:40443/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 36.9887ms
+14:54:47 [INF] [Redouanes-MacBook-Pro #18] Request starting HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - -
+14:54:48 [INF] [Redouanes-MacBook-Pro #18] Request finished HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 168.4586ms
+14:55:10 [INF] [Redouanes-MacBook-Pro #25] Request starting HTTP/1.1 GET https://localhost:40443/ - -
+14:55:10 [INF] [Redouanes-MacBook-Pro #25] Request finished HTTP/1.1 GET https://localhost:40443/ - - - 404 0 - 19.1505ms
+14:55:10 [INF] [Redouanes-MacBook-Pro #25] Request starting HTTP/1.1 GET https://localhost:40443/favicon.ico - -
+14:55:10 [INF] [Redouanes-MacBook-Pro #25] Request finished HTTP/1.1 GET https://localhost:40443/favicon.ico - - - 404 0 - 1.0387ms
+14:55:27 [INF] [Redouanes-MacBook-Pro #22] Request starting HTTP/1.1 GET https://localhost:40443/cache/test/2 - -
+14:55:27 [INF] [Redouanes-MacBook-Pro #22] Executing endpoint 'HTTP: GET /cache/test/2'
+14:55:27 [INF] [Redouanes-MacBook-Pro #22] Executed endpoint 'HTTP: GET /cache/test/2'
+14:55:27 [INF] [Redouanes-MacBook-Pro #22] Request finished HTTP/1.1 GET https://localhost:40443/cache/test/2 - - - 200 0 - 18.5215ms
+14:55:34 [INF] [Redouanes-MacBook-Pro #22] Request starting HTTP/1.1 GET https://localhost:40443/cache/test/2 - -
+14:55:34 [INF] [Redouanes-MacBook-Pro #22] Executing endpoint 'HTTP: GET /cache/test/2'
+14:55:34 [INF] [Redouanes-MacBook-Pro #22] Executed endpoint 'HTTP: GET /cache/test/2'
+14:55:34 [INF] [Redouanes-MacBook-Pro #22] Request finished HTTP/1.1 GET https://localhost:40443/cache/test/2 - - - 200 0 - 2.2162ms
+14:55:48 [INF] [Redouanes-MacBook-Pro #25] Request starting HTTP/1.1 GET https://localhost:40443/boardgames - -
+14:55:48 [INF] [Redouanes-MacBook-Pro #25] Executing endpoint 'MyBGList.Controllers.BoardGamesController.Get (MyBGList)'
+14:55:48 [INF] [Redouanes-MacBook-Pro #25] Route matched with {action = "Get", controller = "BoardGames"}. Executing controller action with signature System.Threading.Tasks.Task`1[MyBGList.DTO.RestDTO`1[MyBGList.Models.BoardGame[]]] Get(MyBGList.DTO.RequestDTO`1[MyBGList.DTO.BoardGameDto]) on controller MyBGList.Controllers.BoardGamesController (MyBGList).
+14:55:48 [INF] [Redouanes-MacBook-Pro #25] Executing action method MyBGList.Controllers.BoardGamesController.Get (MyBGList) - Validation state: "Valid"
+14:55:48 [INF] [Redouanes-MacBook-Pro #25] Get method started.
+14:55:49 [INF] [Redouanes-MacBook-Pro #25] Entity Framework Core 6.0.11 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.11' with options: None
+14:55:50 [INF] [Redouanes-MacBook-Pro #23] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BoardGames] AS [b]
+14:55:50 [INF] [Redouanes-MacBook-Pro #19] Executed DbCommand (80ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[BGGRank], [b].[ComplexityAverage], [b].[CreatedDate], [b].[LastModifiedDate], [b].[MaxPlayers], [b].[MinAge], [b].[MinPlayers], [b].[Name], [b].[OwnedUsers], [b].[PlayTime], [b].[RatingAverage], [b].[UsersRated], [b].[Year]
+FROM [BoardGames] AS [b]
+ORDER BY [b].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+14:55:50 [INF] [Redouanes-MacBook-Pro #19] Executed action method MyBGList.Controllers.BoardGamesController.Get (MyBGList), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1974.9932ms.
+14:55:50 [INF] [Redouanes-MacBook-Pro #19] Executing ObjectResult, writing value of type 'MyBGList.DTO.RestDTO`1[[MyBGList.Models.BoardGame[], MyBGList, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+14:55:50 [INF] [Redouanes-MacBook-Pro #19] Executed action MyBGList.Controllers.BoardGamesController.Get (MyBGList) in 2196.0739ms
+14:55:50 [INF] [Redouanes-MacBook-Pro #19] Executed endpoint 'MyBGList.Controllers.BoardGamesController.Get (MyBGList)'
+14:55:50 [INF] [Redouanes-MacBook-Pro #19] Request finished HTTP/1.1 GET https://localhost:40443/boardgames - - - 200 - application/json;+charset=utf-8 2269.1844ms
+14:58:49 [INF] [Redouanes-MacBook-Pro #36] Application is shutting down...
+15:09:32 [INF] [Redouanes-MacBook-Pro #1] Now listening on: https://localhost:40443
+15:09:32 [INF] [Redouanes-MacBook-Pro #1] Now listening on: http://localhost:40080
+15:09:32 [INF] [Redouanes-MacBook-Pro #1] Application started. Press Ctrl+C to shut down.
+15:09:32 [INF] [Redouanes-MacBook-Pro #1] Hosting environment: Development
+15:09:32 [INF] [Redouanes-MacBook-Pro #1] Content root path: /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/
+15:09:33 [INF] [Redouanes-MacBook-Pro #14] Request starting HTTP/1.1 GET https://localhost:40443/swagger/index.html - -
+15:09:33 [INF] [Redouanes-MacBook-Pro #14] Request finished HTTP/1.1 GET https://localhost:40443/swagger/index.html - - - 200 - text/html;charset=utf-8 171.4732ms
+15:09:33 [INF] [Redouanes-MacBook-Pro #8] Request starting HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - -
+15:09:34 [INF] [Redouanes-MacBook-Pro #8] Request finished HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 154.3722ms
+15:09:38 [INF] [Redouanes-MacBook-Pro #4] Request starting HTTP/1.1 GET https://localhost:40443/boardgames - -
+15:09:38 [INF] [Redouanes-MacBook-Pro #4] Executing endpoint 'MyBGList.Controllers.BoardGamesController.Get (MyBGList)'
+15:09:38 [INF] [Redouanes-MacBook-Pro #4] Route matched with {action = "Get", controller = "BoardGames"}. Executing controller action with signature System.Threading.Tasks.Task`1[MyBGList.DTO.RestDTO`1[MyBGList.Models.BoardGame[]]] Get(MyBGList.DTO.RequestDTO`1[MyBGList.DTO.BoardGameDto]) on controller MyBGList.Controllers.BoardGamesController (MyBGList).
+15:09:38 [INF] [Redouanes-MacBook-Pro #4] Executing action method MyBGList.Controllers.BoardGamesController.Get (MyBGList) - Validation state: "Valid"
+15:09:38 [INF] [Redouanes-MacBook-Pro #4] Get method started.
+15:09:39 [INF] [Redouanes-MacBook-Pro #4] Entity Framework Core 6.0.11 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.11' with options: None
+15:09:39 [INF] [Redouanes-MacBook-Pro #14] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BoardGames] AS [b]
+15:09:40 [INF] [Redouanes-MacBook-Pro #14] Executed DbCommand (76ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[BGGRank], [b].[ComplexityAverage], [b].[CreatedDate], [b].[LastModifiedDate], [b].[MaxPlayers], [b].[MinAge], [b].[MinPlayers], [b].[Name], [b].[OwnedUsers], [b].[PlayTime], [b].[RatingAverage], [b].[UsersRated], [b].[Year]
+FROM [BoardGames] AS [b]
+ORDER BY [b].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+15:09:40 [INF] [Redouanes-MacBook-Pro #14] Executed action method MyBGList.Controllers.BoardGamesController.Get (MyBGList), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 2090.2885ms.
+15:09:40 [INF] [Redouanes-MacBook-Pro #14] Executing ObjectResult, writing value of type 'MyBGList.DTO.RestDTO`1[[MyBGList.Models.BoardGame[], MyBGList, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+15:09:40 [INF] [Redouanes-MacBook-Pro #14] Executed action MyBGList.Controllers.BoardGamesController.Get (MyBGList) in 2321.5522ms
+15:09:40 [INF] [Redouanes-MacBook-Pro #14] Executed endpoint 'MyBGList.Controllers.BoardGamesController.Get (MyBGList)'
+15:09:40 [INF] [Redouanes-MacBook-Pro #14] Request finished HTTP/1.1 GET https://localhost:40443/boardgames - - - 200 - application/json;+charset=utf-8 2393.1827ms
+15:10:28 [INF] [Redouanes-MacBook-Pro #27] Application is shutting down...

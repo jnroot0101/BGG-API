@@ -27,7 +27,7 @@ public class SeedController
     }
 
     [HttpPut(Name = "Seed")]
-    [ResponseCache(NoStore = true)]
+    [ResponseCache(CacheProfileName = "no-cache")]
     public async Task<IActionResult> Put()
     {
         // SETUP

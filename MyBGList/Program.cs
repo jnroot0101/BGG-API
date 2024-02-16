@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Net.Http.Headers;
 using MyBGList.Constants;
 using MyBGList.Models;
 using MyBGList.Swagger;
@@ -83,6 +84,14 @@ builder.Services.AddControllers(options =>
         (x, y) => $"The value {x} is not valid for {y}.");
     options.ModelBindingMessageProvider.SetMissingKeyOrValueAccessor(
         () => "A value is required.");
+    options.CacheProfiles.Add("no-cache",
+        new CacheProfile { NoStore = true });
+    options.CacheProfiles.Add("Any-60",
+        new CacheProfile
+        {
+            Location = ResponseCacheLocation.Any,
+            Duration = 60
+        });
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -121,6 +130,16 @@ app.UseHttpsRedirection();
 app.UseCors();
 
 app.UseAuthorization();
+
+app.Use((context, next) =>
+{
+    context.Response.GetTypedHeaders().CacheControl = new CacheControlHeaderValue
+    {
+        NoCache = true,
+        NoStore = true
+    };
+    return next.Invoke();
+});
 
 // Minimal API
 app.MapGet("/error",
@@ -168,11 +187,7 @@ app.MapGet("/cache/test/1",
         return Results.Ok();
     });
 app.MapGet("/cache/test/2",
-    [EnableCors("AnyOrigin")]
-    () =>
-    {
-        Results.Ok();
-    });
+    [EnableCors("AnyOrigin")]() => { Results.Ok(); });
 
 // Controllers
 app.MapControllers().RequireCors("AnyOrigin");

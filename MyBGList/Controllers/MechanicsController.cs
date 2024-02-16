@@ -22,7 +22,7 @@ public class MechanicsController : ControllerBase
     }
 
     [HttpGet(Name = "GetMechanics")]
-    [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 60)]
+    [ResponseCache(CacheProfileName = "Any-60")]
     public async Task<RestDTO<Mechanic[]>> Get(
         [FromQuery] RequestDTO<MechanicDTO> input)
     {
@@ -54,7 +54,7 @@ public class MechanicsController : ControllerBase
     }
 
     [HttpPost(Name = "UpdateMechanic")]
-    [ResponseCache(NoStore = true)]
+    [ResponseCache(CacheProfileName = "no-cache")]
     public async Task<RestDTO<Mechanic>> Post(MechanicDTO model)
     {
         var mechanic = await _context.Mechanics
@@ -87,7 +87,7 @@ public class MechanicsController : ControllerBase
     }
 
     [HttpDelete(Name = "DeleteMechanic")]
-    [ResponseCache(NoStore = true)]
+    [ResponseCache(CacheProfileName = "no-cache")]
     public async Task<RestDTO<Mechanic?>> Delete(int id)
     {
         var mechanic = await _context.Mechanics

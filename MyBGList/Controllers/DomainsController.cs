@@ -25,7 +25,7 @@ public class DomainsController : ControllerBase
     }
 
     [HttpGet(Name = "GetDomains")]
-    [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 60)]
+    [ResponseCache(CacheProfileName = "Any-60")]
     [ManualValidationFilter]
     public async Task<ActionResult<RestDTO<Domain[]>>> Get(
         [FromQuery] RequestDTO<DomainDTO> input)
@@ -80,7 +80,7 @@ public class DomainsController : ControllerBase
     }
 
     [HttpPost(Name = "UpdateDomain")]
-    [ResponseCache(NoStore = true)]
+    [ResponseCache(CacheProfileName = "no-cache")]
     public async Task<RestDTO<Domain?>> Post(DomainDTO model)
     {
         var domain = await _context.Domains
@@ -113,7 +113,7 @@ public class DomainsController : ControllerBase
     }
 
     [HttpDelete(Name = "DeleteDomain")]
-    [ResponseCache(NoStore = true)]
+    [ResponseCache(CacheProfileName = "no-cache")]
     public async Task<RestDTO<Domain?>> Delete(int id)
     {
         var domain = await _context.Domains
