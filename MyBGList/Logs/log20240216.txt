@@ -71,3 +71,66 @@ OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
 15:09:40 [INF] [Redouanes-MacBook-Pro #14] Executed endpoint 'MyBGList.Controllers.BoardGamesController.Get (MyBGList)'
 15:09:40 [INF] [Redouanes-MacBook-Pro #14] Request finished HTTP/1.1 GET https://localhost:40443/boardgames - - - 200 - application/json;+charset=utf-8 2393.1827ms
 15:10:28 [INF] [Redouanes-MacBook-Pro #27] Application is shutting down...
+17:18:45 [INF] [Redouanes-MacBook-Pro #1] Now listening on: https://localhost:40443
+17:18:45 [INF] [Redouanes-MacBook-Pro #1] Now listening on: http://localhost:40080
+17:18:45 [INF] [Redouanes-MacBook-Pro #1] Application started. Press Ctrl+C to shut down.
+17:18:45 [INF] [Redouanes-MacBook-Pro #1] Hosting environment: Development
+17:18:45 [INF] [Redouanes-MacBook-Pro #1] Content root path: /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/
+17:18:52 [INF] [Redouanes-MacBook-Pro #15] Request starting HTTP/1.1 GET https://localhost:40443/swagger/index.html - -
+17:18:53 [INF] [Redouanes-MacBook-Pro #15] Request finished HTTP/1.1 GET https://localhost:40443/swagger/index.html - - - 200 - text/html;charset=utf-8 146.4800ms
+17:18:53 [INF] [Redouanes-MacBook-Pro #9] Request starting HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - -
+17:18:53 [INF] [Redouanes-MacBook-Pro #9] Request finished HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 327.0475ms
+17:19:03 [INF] [Redouanes-MacBook-Pro #9] Request starting HTTP/1.1 GET https://localhost:40443/boardgames - -
+17:19:04 [INF] [Redouanes-MacBook-Pro #9] No cached response available for this request.
+17:19:04 [INF] [Redouanes-MacBook-Pro #9] Executing endpoint 'MyBGList.Controllers.BoardGamesController.Get (MyBGList)'
+17:19:04 [INF] [Redouanes-MacBook-Pro #9] Route matched with {action = "Get", controller = "BoardGames"}. Executing controller action with signature System.Threading.Tasks.Task`1[MyBGList.DTO.RestDTO`1[MyBGList.Models.BoardGame[]]] Get(MyBGList.DTO.RequestDTO`1[MyBGList.DTO.BoardGameDto]) on controller MyBGList.Controllers.BoardGamesController (MyBGList).
+17:19:04 [INF] [Redouanes-MacBook-Pro #9] Executing action method MyBGList.Controllers.BoardGamesController.Get (MyBGList) - Validation state: "Valid"
+17:19:04 [INF] [Redouanes-MacBook-Pro #9] Get method started.
+17:19:05 [INF] [Redouanes-MacBook-Pro #9] Entity Framework Core 6.0.11 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.11' with options: None
+17:19:05 [INF] [Redouanes-MacBook-Pro #17] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BoardGames] AS [b]
+17:20:05 [INF] [Redouanes-MacBook-Pro #17] Executed DbCommand (103ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[BGGRank], [b].[ComplexityAverage], [b].[CreatedDate], [b].[LastModifiedDate], [b].[MaxPlayers], [b].[MinAge], [b].[MinPlayers], [b].[Name], [b].[OwnedUsers], [b].[PlayTime], [b].[RatingAverage], [b].[UsersRated], [b].[Year]
+FROM [BoardGames] AS [b]
+ORDER BY [b].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+17:20:05 [INF] [Redouanes-MacBook-Pro #17] Executed action method MyBGList.Controllers.BoardGamesController.Get (MyBGList), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 61139.3241ms.
+17:20:05 [INF] [Redouanes-MacBook-Pro #17] Executing ObjectResult, writing value of type 'MyBGList.DTO.RestDTO`1[[MyBGList.Models.BoardGame[], MyBGList, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+17:20:05 [INF] [Redouanes-MacBook-Pro #17] Executed action MyBGList.Controllers.BoardGamesController.Get (MyBGList) in 61472.8633ms
+17:20:05 [INF] [Redouanes-MacBook-Pro #17] Executed endpoint 'MyBGList.Controllers.BoardGamesController.Get (MyBGList)'
+17:20:05 [INF] [Redouanes-MacBook-Pro #17] The response has been cached.
+17:20:05 [INF] [Redouanes-MacBook-Pro #17] Request finished HTTP/1.1 GET https://localhost:40443/boardgames - - - 200 - application/json;+charset=utf-8 61616.5766ms
+17:20:10 [INF] [Redouanes-MacBook-Pro #9] Request starting HTTP/1.1 GET https://localhost:40443/boardgames - -
+17:20:10 [INF] [Redouanes-MacBook-Pro #9] Serving response from cache.
+17:20:10 [INF] [Redouanes-MacBook-Pro #9] Request finished HTTP/1.1 GET https://localhost:40443/boardgames - - - 200 - application/json;+charset=utf-8 28.2909ms
+17:20:13 [INF] [Redouanes-MacBook-Pro #9] Request starting HTTP/1.1 GET https://localhost:40443/boardgames - -
+17:20:13 [INF] [Redouanes-MacBook-Pro #9] Serving response from cache.
+17:20:13 [INF] [Redouanes-MacBook-Pro #9] Request finished HTTP/1.1 GET https://localhost:40443/boardgames - - - 200 - application/json;+charset=utf-8 16.6123ms
+17:20:14 [INF] [Redouanes-MacBook-Pro #21] Request starting HTTP/1.1 GET https://localhost:40443/boardgames - -
+17:20:14 [INF] [Redouanes-MacBook-Pro #21] Serving response from cache.
+17:20:14 [INF] [Redouanes-MacBook-Pro #21] Request finished HTTP/1.1 GET https://localhost:40443/boardgames - - - 200 - application/json;+charset=utf-8 13.8274ms
+17:20:15 [INF] [Redouanes-MacBook-Pro #20] Request starting HTTP/1.1 GET https://localhost:40443/boardgames - -
+17:20:15 [INF] [Redouanes-MacBook-Pro #20] Serving response from cache.
+17:20:15 [INF] [Redouanes-MacBook-Pro #20] Request finished HTTP/1.1 GET https://localhost:40443/boardgames - - - 200 - application/json;+charset=utf-8 12.1645ms
+17:20:16 [INF] [Redouanes-MacBook-Pro #19] Request starting HTTP/1.1 GET https://localhost:40443/boardgames - -
+17:20:16 [INF] [Redouanes-MacBook-Pro #19] Serving response from cache.
+17:20:16 [INF] [Redouanes-MacBook-Pro #19] Request finished HTTP/1.1 GET https://localhost:40443/boardgames - - - 200 - application/json;+charset=utf-8 14.0144ms
+17:20:17 [INF] [Redouanes-MacBook-Pro #20] Request starting HTTP/1.1 GET https://localhost:40443/boardgames - -
+17:20:17 [INF] [Redouanes-MacBook-Pro #20] Serving response from cache.
+17:20:17 [INF] [Redouanes-MacBook-Pro #20] Request finished HTTP/1.1 GET https://localhost:40443/boardgames - - - 200 - application/json;+charset=utf-8 13.2407ms
+17:20:18 [INF] [Redouanes-MacBook-Pro #21] Request starting HTTP/1.1 GET https://localhost:40443/boardgames - -
+17:20:18 [INF] [Redouanes-MacBook-Pro #21] Serving response from cache.
+17:20:18 [INF] [Redouanes-MacBook-Pro #21] Request finished HTTP/1.1 GET https://localhost:40443/boardgames - - - 200 - application/json;+charset=utf-8 13.6125ms
+17:20:19 [INF] [Redouanes-MacBook-Pro #19] Request starting HTTP/1.1 GET https://localhost:40443/boardgames - -
+17:20:19 [INF] [Redouanes-MacBook-Pro #19] Serving response from cache.
+17:20:19 [INF] [Redouanes-MacBook-Pro #19] Request finished HTTP/1.1 GET https://localhost:40443/boardgames - - - 200 - application/json;+charset=utf-8 11.7106ms
+17:20:20 [INF] [Redouanes-MacBook-Pro #25] Request starting HTTP/1.1 GET https://localhost:40443/boardgames - -
+17:20:20 [INF] [Redouanes-MacBook-Pro #25] Serving response from cache.
+17:20:20 [INF] [Redouanes-MacBook-Pro #25] Request finished HTTP/1.1 GET https://localhost:40443/boardgames - - - 200 - application/json;+charset=utf-8 14.2384ms
+17:20:38 [INF] [Redouanes-MacBook-Pro #9] Request starting HTTP/1.1 GET https://localhost:40443/boardgames - -
+17:20:38 [INF] [Redouanes-MacBook-Pro #9] Serving response from cache.
+17:20:38 [INF] [Redouanes-MacBook-Pro #9] Request finished HTTP/1.1 GET https://localhost:40443/boardgames - - - 200 - application/json;+charset=utf-8 13.7252ms
+17:20:42 [INF] [Redouanes-MacBook-Pro #25] Request starting HTTP/1.1 GET https://localhost:40443/boardgames - -
+17:20:42 [INF] [Redouanes-MacBook-Pro #25] Serving response from cache.
+17:20:42 [INF] [Redouanes-MacBook-Pro #25] Request finished HTTP/1.1 GET https://localhost:40443/boardgames - - - 200 - application/json;+charset=utf-8 13.4195ms

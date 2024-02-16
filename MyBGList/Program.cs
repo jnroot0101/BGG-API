@@ -111,6 +111,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //     options.SuppressModelStateInvalidFilter = true;
 // });
 
+builder.Services.AddResponseCaching(options =>
+{
+    options.MaximumBodySize = 32 * 1024 * 1024;
+    options.SizeLimit = 50 * 1024 * 1024;
+});
+
+builder.Services.AddMemoryCache();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -128,6 +136,8 @@ else
 app.UseHttpsRedirection();
 
 app.UseCors();
+
+app.UseResponseCaching();
 
 app.UseAuthorization();
 
