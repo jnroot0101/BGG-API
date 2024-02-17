@@ -101,3 +101,170 @@ CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHER
 11:29:58 [INF] [Redouanes-MacBook-Pro #1] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
 VALUES (N'20240217102926_Identity', N'6.0.11');
+12:37:34 [INF] [Redouanes-MacBook-Pro #1] User profile is available. Using '/Users/redouanejnah/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+12:37:34 [INF] [Redouanes-MacBook-Pro #1] Creating key {898b7013-15bb-4154-a3d6-4ae243e6575b} with creation date 2024-02-17 11:37:34Z, activation date 2024-02-17 11:37:34Z, and expiration date 2024-05-17 11:37:34Z.
+12:37:34 [WRN] [Redouanes-MacBook-Pro #1] No XML encryptor configured. Key {898b7013-15bb-4154-a3d6-4ae243e6575b} may be persisted to storage in unencrypted form.
+12:37:34 [INF] [Redouanes-MacBook-Pro #1] Writing data to file '/Users/redouanejnah/.aspnet/DataProtection-Keys/key-898b7013-15bb-4154-a3d6-4ae243e6575b.xml'.
+12:37:34 [INF] [Redouanes-MacBook-Pro #1] Now listening on: https://localhost:40443
+12:37:34 [INF] [Redouanes-MacBook-Pro #1] Now listening on: http://localhost:40080
+12:37:34 [INF] [Redouanes-MacBook-Pro #1] Application started. Press Ctrl+C to shut down.
+12:37:34 [INF] [Redouanes-MacBook-Pro #1] Hosting environment: Development
+12:37:34 [INF] [Redouanes-MacBook-Pro #1] Content root path: /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/
+12:37:35 [INF] [Redouanes-MacBook-Pro #13] Request starting HTTP/1.1 GET https://localhost:40443/swagger/index.html - -
+12:37:36 [INF] [Redouanes-MacBook-Pro #13] Request finished HTTP/1.1 GET https://localhost:40443/swagger/index.html - - - 200 - text/html;charset=utf-8 309.6931ms
+12:37:36 [INF] [Redouanes-MacBook-Pro #7] Request starting HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - -
+12:37:36 [INF] [Redouanes-MacBook-Pro #7] Request finished HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 217.1523ms
+12:38:15 [INF] [Redouanes-MacBook-Pro #26] Request starting HTTP/1.1 GET https://localhost:40443/swagger/index.html - -
+12:38:15 [INF] [Redouanes-MacBook-Pro #26] Request finished HTTP/1.1 GET https://localhost:40443/swagger/index.html - - - 200 - text/html;charset=utf-8 6.4442ms
+12:38:15 [INF] [Redouanes-MacBook-Pro #24] Request starting HTTP/1.1 GET https://localhost:40443/swagger/swagger-ui.css - -
+12:38:15 [INF] [Redouanes-MacBook-Pro #19] Request starting HTTP/1.1 GET https://localhost:40443/swagger/swagger-ui-standalone-preset.js - -
+12:38:15 [INF] [Redouanes-MacBook-Pro #24] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+12:38:15 [INF] [Redouanes-MacBook-Pro #24] Request finished HTTP/1.1 GET https://localhost:40443/swagger/swagger-ui.css - - - 200 144929 text/css 31.7660ms
+12:38:15 [INF] [Redouanes-MacBook-Pro #23] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+12:38:15 [INF] [Redouanes-MacBook-Pro #23] Request finished HTTP/1.1 GET https://localhost:40443/swagger/swagger-ui-standalone-preset.js - - - 200 312163 application/javascript 11.8434ms
+12:38:15 [INF] [Redouanes-MacBook-Pro #24] Request starting HTTP/1.1 GET https://localhost:40443/swagger/swagger-ui-bundle.js - -
+12:38:15 [INF] [Redouanes-MacBook-Pro #20] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+12:38:15 [INF] [Redouanes-MacBook-Pro #20] Request finished HTTP/1.1 GET https://localhost:40443/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 10.7902ms
+12:38:16 [INF] [Redouanes-MacBook-Pro #25] Request starting HTTP/1.1 GET https://localhost:40443/swagger/favicon-16x16.png - -
+12:38:16 [INF] [Redouanes-MacBook-Pro #25] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+12:38:16 [INF] [Redouanes-MacBook-Pro #25] Request finished HTTP/1.1 GET https://localhost:40443/swagger/favicon-16x16.png - - - 200 665 image/png 0.6314ms
+12:38:16 [INF] [Redouanes-MacBook-Pro #22] Request starting HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - -
+12:38:16 [INF] [Redouanes-MacBook-Pro #22] Request finished HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 14.9416ms
+12:39:37 [INF] [Redouanes-MacBook-Pro #19] Request starting HTTP/1.1 POST https://localhost:40443/Account/Register application/json 82
+12:39:37 [INF] [Redouanes-MacBook-Pro #19] CORS policy execution successful.
+12:39:37 [ERR] [Redouanes-MacBook-Pro #19] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: String reference not set to an instance of a String. (Parameter 's')
+   at System.Text.Encoding.GetBytes(String s)
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__9(JwtBearerOptions options) in /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/Program.cs:line 134
+   at Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure(String name, TOptions options)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.<>c__DisplayClass10_0.<Get>b__0()
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(AuthenticationScheme scheme, HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandlerProvider.GetHandlerAsync(HttpContext context, String authenticationScheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync(HttpContext context, String scheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+12:39:37 [INF] [Redouanes-MacBook-Pro #19] Request finished HTTP/1.1 POST https://localhost:40443/Account/Register application/json 82 - 500 - text/plain;+charset=utf-8 92.1118ms
+12:39:37 [INF] [Redouanes-MacBook-Pro #19] Connection id "0HN1FLJB0RDE5", Request id "0HN1FLJB0RDE5:00000002": the application completed without reading the entire request body.
+12:40:18 [INF] [Redouanes-MacBook-Pro #33] Application is shutting down...
+12:42:49 [INF] [Redouanes-MacBook-Pro #1] User profile is available. Using '/Users/redouanejnah/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+12:42:49 [INF] [Redouanes-MacBook-Pro #1] Now listening on: https://localhost:40443
+12:42:49 [INF] [Redouanes-MacBook-Pro #1] Now listening on: http://localhost:40080
+12:42:49 [INF] [Redouanes-MacBook-Pro #1] Application started. Press Ctrl+C to shut down.
+12:42:49 [INF] [Redouanes-MacBook-Pro #1] Hosting environment: Development
+12:42:49 [INF] [Redouanes-MacBook-Pro #1] Content root path: /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/
+12:42:50 [INF] [Redouanes-MacBook-Pro #8] Request starting HTTP/1.1 GET https://localhost:40443/swagger/index.html - -
+12:42:50 [INF] [Redouanes-MacBook-Pro #8] Request finished HTTP/1.1 GET https://localhost:40443/swagger/index.html - - - 200 - text/html;charset=utf-8 157.9625ms
+12:42:50 [INF] [Redouanes-MacBook-Pro #4] Request starting HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - -
+12:42:50 [INF] [Redouanes-MacBook-Pro #4] Request finished HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 152.1647ms
+12:43:24 [INF] [Redouanes-MacBook-Pro #22] Request starting HTTP/1.1 POST https://localhost:40443/Account/Register application/json 82
+12:43:24 [INF] [Redouanes-MacBook-Pro #22] CORS policy execution successful.
+12:43:24 [ERR] [Redouanes-MacBook-Pro #22] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: String reference not set to an instance of a String. (Parameter 's')
+   at System.Text.Encoding.GetBytes(String s)
+   at System.Text.UTF8Encoding.UTF8EncodingSealed.GetBytes(String s)
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__9(JwtBearerOptions options) in /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/Program.cs:line 134
+   at Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure(String name, TOptions options)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.<>c__DisplayClass10_0.<Get>b__0()
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.get_Value()
+   at Microsoft.Extensions.Options.OptionsCache`1.GetOrAdd(String name, Func`1 createOptions)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.Get(String name)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(AuthenticationScheme scheme, HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandlerProvider.GetHandlerAsync(HttpContext context, String authenticationScheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync(HttpContext context, String scheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+12:43:24 [INF] [Redouanes-MacBook-Pro #22] Request finished HTTP/1.1 POST https://localhost:40443/Account/Register application/json 82 - 500 - text/plain;+charset=utf-8 87.1146ms
+12:43:24 [INF] [Redouanes-MacBook-Pro #22] Connection id "0HN1FLM8NJ7PD", Request id "0HN1FLM8NJ7PD:00000002": the application completed without reading the entire request body.
+12:44:21 [INF] [Redouanes-MacBook-Pro #32] Application is shutting down...
+12:45:07 [INF] [Redouanes-MacBook-Pro #1] User profile is available. Using '/Users/redouanejnah/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+12:45:08 [INF] [Redouanes-MacBook-Pro #1] Now listening on: https://localhost:40443
+12:45:08 [INF] [Redouanes-MacBook-Pro #1] Now listening on: http://localhost:40080
+12:45:08 [INF] [Redouanes-MacBook-Pro #1] Application started. Press Ctrl+C to shut down.
+12:45:08 [INF] [Redouanes-MacBook-Pro #1] Hosting environment: Development
+12:45:08 [INF] [Redouanes-MacBook-Pro #1] Content root path: /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/
+12:45:08 [INF] [Redouanes-MacBook-Pro #4] Request starting HTTP/1.1 GET https://localhost:40443/swagger/index.html - -
+12:45:08 [INF] [Redouanes-MacBook-Pro #4] Request finished HTTP/1.1 GET https://localhost:40443/swagger/index.html - - - 200 - text/html;charset=utf-8 185.6198ms
+12:45:09 [INF] [Redouanes-MacBook-Pro #20] Request starting HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - -
+12:45:09 [INF] [Redouanes-MacBook-Pro #20] Request finished HTTP/1.1 GET https://localhost:40443/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 167.0874ms
+12:45:12 [INF] [Redouanes-MacBook-Pro #20] Request starting HTTP/1.1 POST https://localhost:40443/Account/Register application/json 82
+12:45:12 [INF] [Redouanes-MacBook-Pro #20] CORS policy execution successful.
+12:45:13 [INF] [Redouanes-MacBook-Pro #20] Executing endpoint 'MyBGList.Controllers.AccountController.Register (MyBGList)'
+12:45:13 [INF] [Redouanes-MacBook-Pro #20] Executed endpoint 'MyBGList.Controllers.AccountController.Register (MyBGList)'
+12:45:13 [ERR] [Redouanes-MacBook-Pro #20] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The 'noCache' cache profile is not defined.
+   at Microsoft.AspNetCore.Mvc.ResponseCacheAttribute.GetCacheProfile(MvcOptions options)
+   at Microsoft.AspNetCore.Mvc.ResponseCacheAttribute.CreateInstance(IServiceProvider serviceProvider)
+   at Microsoft.AspNetCore.Mvc.Filters.DefaultFilterProvider.ProvideFilter(FilterProviderContext context, FilterItem filterItem)
+   at Microsoft.AspNetCore.Mvc.Filters.DefaultFilterProvider.OnProvidersExecuting(FilterProviderContext context)
+   at Microsoft.AspNetCore.Mvc.Filters.FilterFactory.CreateUncachedFiltersCore(IFilterProvider[] filterProviders, ActionContext actionContext, List`1 filterItems)
+   at Microsoft.AspNetCore.Mvc.Filters.FilterFactory.GetAllFilters(IFilterProvider[] filterProviders, ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvokerCache.GetCachedResult(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Routing.ControllerRequestDelegateFactory.<>c__DisplayClass12_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+12:45:13 [INF] [Redouanes-MacBook-Pro #20] Request finished HTTP/1.1 POST https://localhost:40443/Account/Register application/json 82 - 500 - text/plain;+charset=utf-8 101.3736ms
+12:45:56 [INF] [Redouanes-MacBook-Pro #27] Application is shutting down...
+12:49:10 [ERR] [Redouanes-MacBook-Pro #19] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The 'noCache' cache profile is not defined.
+   at Microsoft.AspNetCore.Mvc.ResponseCacheAttribute.GetCacheProfile(MvcOptions options)
+   at Microsoft.AspNetCore.Mvc.ResponseCacheAttribute.CreateInstance(IServiceProvider serviceProvider)
+   at Microsoft.AspNetCore.Mvc.Filters.DefaultFilterProvider.ProvideFilter(FilterProviderContext context, FilterItem filterItem)
+   at Microsoft.AspNetCore.Mvc.Filters.DefaultFilterProvider.OnProvidersExecuting(FilterProviderContext context)
+   at Microsoft.AspNetCore.Mvc.Filters.FilterFactory.CreateUncachedFiltersCore(IFilterProvider[] filterProviders, ActionContext actionContext, List`1 filterItems)
+   at Microsoft.AspNetCore.Mvc.Filters.FilterFactory.GetAllFilters(IFilterProvider[] filterProviders, ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvokerCache.GetCachedResult(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Routing.ControllerRequestDelegateFactory.<>c__DisplayClass12_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+12:49:32 [ERR] [Redouanes-MacBook-Pro #24] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The 'noCache' cache profile is not defined.
+   at Microsoft.AspNetCore.Mvc.ResponseCacheAttribute.GetCacheProfile(MvcOptions options)
+   at Microsoft.AspNetCore.Mvc.ResponseCacheAttribute.CreateInstance(IServiceProvider serviceProvider)
+   at Microsoft.AspNetCore.Mvc.Filters.DefaultFilterProvider.ProvideFilter(FilterProviderContext context, FilterItem filterItem)
+   at Microsoft.AspNetCore.Mvc.Filters.DefaultFilterProvider.OnProvidersExecuting(FilterProviderContext context)
+   at Microsoft.AspNetCore.Mvc.Filters.FilterFactory.CreateUncachedFiltersCore(IFilterProvider[] filterProviders, ActionContext actionContext, List`1 filterItems)
+   at Microsoft.AspNetCore.Mvc.Filters.FilterFactory.GetAllFilters(IFilterProvider[] filterProviders, ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvokerCache.GetCachedResult(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Routing.ControllerRequestDelegateFactory.<>c__DisplayClass12_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+12:51:01 [ERR] [Redouanes-MacBook-Pro #4] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The 'noCache' cache profile is not defined.
+   at Microsoft.AspNetCore.Mvc.ResponseCacheAttribute.GetCacheProfile(MvcOptions options)
+   at Microsoft.AspNetCore.Mvc.ResponseCacheAttribute.CreateInstance(IServiceProvider serviceProvider)
+   at Microsoft.AspNetCore.Mvc.Filters.DefaultFilterProvider.ProvideFilter(FilterProviderContext context, FilterItem filterItem)
+   at Microsoft.AspNetCore.Mvc.Filters.DefaultFilterProvider.OnProvidersExecuting(FilterProviderContext context)
+   at Microsoft.AspNetCore.Mvc.Filters.FilterFactory.CreateUncachedFiltersCore(IFilterProvider[] filterProviders, ActionContext actionContext, List`1 filterItems)
+   at Microsoft.AspNetCore.Mvc.Filters.FilterFactory.GetAllFilters(IFilterProvider[] filterProviders, ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvokerCache.GetCachedResult(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Routing.ControllerRequestDelegateFactory.<>c__DisplayClass12_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+12:54:51 [WRN] [Redouanes-MacBook-Pro #19] User password validation failed: PasswordRequiresNonAlphanumeric;PasswordRequiresDigit.
+12:55:50 [INF] [Redouanes-MacBook-Pro #26] User TestUser (test-user@email.com) has been created.
