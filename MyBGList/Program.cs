@@ -1,9 +1,13 @@
 using System.Data;
 using System.Diagnostics;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
 using MyBGList.Constants;
 using MyBGList.Models;
@@ -105,11 +109,40 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection"))
 );
-// Code replaced by the [ManualValidationFilter] attribute
-// builder.Services.Configure<ApiBehaviorOptions>(options =>
-// {
-//     options.SuppressModelStateInvalidFilter = true;
-// });
+
+builder.Services.AddIdentity<ApiUser, IdentityRole>(options =>
+    {
+        options.Password.RequireDigit = true;
+        options.Password.RequireLowercase = true;
+        options.Password.RequireUppercase = true;
+        options.Password.RequireNonAlphanumeric = true;
+        options.Password.RequiredLength = 12;
+    })
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme =
+        options.DefaultChallengeScheme =
+            options.DefaultForbidScheme =
+                options.DefaultScheme =
+                    options.DefaultSignInScheme =
+                        options.DefaultSignOutScheme =
+                            JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidIssuer = builder.Configuration["JWT:Issuer"],
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration["JWT:Audience"],
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(
+                builder.Configuration["JWT:SigningKey"]))
+    };
+});
 
 builder.Services.AddResponseCaching(options =>
 {
@@ -119,12 +152,6 @@ builder.Services.AddResponseCaching(options =>
 
 builder.Services.AddMemoryCache();
 
-// builder.Services.AddDistributedSqlServerCache(options =>
-// {
-//     options.ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-//     options.SchemaName = "dbo";
-//     options.TableName = "AppCache";
-// });
 builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = builder.Configuration["Redis:ConnectionString"];
@@ -150,6 +177,7 @@ app.UseCors();
 
 app.UseResponseCaching();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.Use((context, next) =>
