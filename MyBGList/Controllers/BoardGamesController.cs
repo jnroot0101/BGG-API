@@ -1,5 +1,6 @@
 ﻿using System.Linq.Dynamic.Core;
 using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
@@ -71,6 +72,7 @@ public class BoardGamesController : ControllerBase
         };
     }
 
+    [Authorize]
     [HttpPost(Name = "UpdateBoardGame")]
     [ResponseCache(CacheProfileName = "no-cache")]
     public async Task<RestDTO<BoardGame?>> Post(BoardGameDto model)
@@ -106,6 +108,7 @@ public class BoardGamesController : ControllerBase
         };
     }
 
+    [Authorize]
     [HttpDelete(Name = "DeleteBoardGame")]
     [ResponseCache(CacheProfileName = "no-cache")]
     public async Task<RestDTO<BoardGame?>> Delete(int id)

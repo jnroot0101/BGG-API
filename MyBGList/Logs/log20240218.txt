@@ -1,0 +1,2 @@
+12:15:48 [INF] [Redouanes-MacBook-Pro #7] User TestModerator (test-moderator@email.com) has been created.
+12:16:14 [INF] [Redouanes-MacBook-Pro #21] User TestAdministrator (test-administrator@email.com) has been created.

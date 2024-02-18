@@ -2,6 +2,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
+using Microsoft.OpenApi.Models;
 using MyBGList.Constants;
 using MyBGList.Models;
 using MyBGList.Swagger;
@@ -103,6 +105,31 @@ builder.Services.AddSwaggerGen(options =>
 {
     options.ParameterFilter<SortColumnFilter>();
     options.ParameterFilter<SortOrderFilter>();
+
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Please enter token",
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "bearer"
+    });
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
 });
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -230,15 +257,10 @@ app.MapGet("/cod/test",
                      "</script>" +
                      "<noscript>Your client does not support JavaScript</noscript>",
             "text/html"));
+app.MapGet("/auth/test/1",
+    [Authorize] [EnableCors("Any-origin")] [ResponseCache(NoStore = true)]
+    () => Results.Ok("You are authorized!"));
 
-app.MapGet("/cache/test/1",
-    [EnableCors("AnyOrigin")](HttpContext context) =>
-    {
-        context.Response.Headers["cache-control"] = "no-cache, no-store";
-        return Results.Ok();
-    });
-app.MapGet("/cache/test/2",
-    [EnableCors("AnyOrigin")]() => { Results.Ok(); });
 
 // Controllers
 app.MapControllers().RequireCors("AnyOrigin");

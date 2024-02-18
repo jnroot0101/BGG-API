@@ -268,3 +268,10 @@ System.InvalidOperationException: The 'noCache' cache profile is not defined.
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 12:54:51 [WRN] [Redouanes-MacBook-Pro #19] User password validation failed: PasswordRequiresNonAlphanumeric;PasswordRequiresDigit.
 12:55:50 [INF] [Redouanes-MacBook-Pro #26] User TestUser (test-user@email.com) has been created.
+14:34:12 [WRN] [Redouanes-MacBook-Pro #27] Invalid password for user.
+14:34:32 [WRN] [Redouanes-MacBook-Pro #34] Invalid password for user.
+14:34:34 [WRN] [Redouanes-MacBook-Pro #31] Invalid password for user.
+14:34:53 [WRN] [Redouanes-MacBook-Pro #36] Invalid password for user.
+14:35:06 [WRN] [Redouanes-MacBook-Pro #31] Invalid password for user.
+14:49:44 [WRN] [Redouanes-MacBook-Pro #61] Invalid password for user.
+14:50:18 [INF] [Redouanes-MacBook-Pro #61] User r.jnah (jnah@email.com) has been created.
