@@ -72,6 +72,42 @@ public class BoardGamesController : ControllerBase
         };
     }
 
+    [HttpGet("{id}")]
+    [ResponseCache(CacheProfileName = "Any-60")]
+    public async Task<RestDTO<BoardGame?>> GetBoardGame(int id)
+    {
+        _logger.LogInformation(CustomLogEvents.BoardGamesController_Get,
+            "GetBoardGame method started.");
+
+        BoardGame? result = null;
+        var cacheKey = $"GetBoardGame-{id}";
+        if (!_memoryCache.TryGetValue<BoardGame>(cacheKey, out result))
+        {
+            result = await _context.BoardGames
+                .FirstOrDefaultAsync(bg => bg.Id == id);
+            _memoryCache.Set(cacheKey, result, new TimeSpan(0, 0, 30));
+        }
+
+        return new RestDTO<BoardGame?>
+        {
+            Data = result,
+            PageIndex = 0,
+            PageSize = 1,
+            RecordCount = result != null ? 1 : 0,
+            Links = new List<LinkDTO>
+            {
+                new(
+                    Url.Action(
+                        null,
+                        "BoardGames",
+                        new { id },
+                        Request.Scheme)!,
+                    "self",
+                    "GET")
+            }
+        };
+    }
+
     [Authorize(Roles = RoleNames.Moderator)]
     [HttpPost(Name = "UpdateBoardGame")]
     [ResponseCache(CacheProfileName = "no-cache")]

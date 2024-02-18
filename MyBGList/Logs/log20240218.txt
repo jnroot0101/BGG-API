@@ -10,3 +10,4 @@
 13:51:08 [INF] [Redouanes-MacBook-Pro #23] User TestUser (test-user@email.com) has been created.
 13:51:26 [INF] [Redouanes-MacBook-Pro #24] User TestModerator (test-moderator@email.com) has been created.
 13:51:41 [INF] [Redouanes-MacBook-Pro #26] User TestAdministrator (test-administrator@email.com) has been created.
+15:02:46 [INF] [Redouanes-MacBook-Pro #13] GetBoardGame method started.
