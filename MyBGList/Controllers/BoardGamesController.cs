@@ -72,7 +72,7 @@ public class BoardGamesController : ControllerBase
         };
     }
 
-    [Authorize]
+    [Authorize(Roles = RoleNames.Moderator)]
     [HttpPost(Name = "UpdateBoardGame")]
     [ResponseCache(CacheProfileName = "no-cache")]
     public async Task<RestDTO<BoardGame?>> Post(BoardGameDto model)
@@ -108,7 +108,7 @@ public class BoardGamesController : ControllerBase
         };
     }
 
-    [Authorize]
+    [Authorize(Roles = RoleNames.Administrator)]
     [HttpDelete(Name = "DeleteBoardGame")]
     [ResponseCache(CacheProfileName = "no-cache")]
     public async Task<RestDTO<BoardGame?>> Delete(int id)

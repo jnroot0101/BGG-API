@@ -1,5 +1,6 @@
 using System.Data;
 using System.Diagnostics;
+using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -260,7 +261,13 @@ app.MapGet("/cod/test",
 app.MapGet("/auth/test/1",
     [Authorize] [EnableCors("Any-origin")] [ResponseCache(NoStore = true)]
     () => Results.Ok("You are authorized!"));
+app.MapGet("/auth/test/2",
+    [Authorize(Roles = RoleNames.Moderator)] [EnableCors("AnyOrigin")] [ResponseCache(NoStore = true)]
+    () => Results.Ok("You are authorized!"));
 
+app.MapGet("/auth/test/3",
+    [Authorize(Roles = RoleNames.Administrator)] [EnableCors("AnyOrigin")] [ResponseCache(NoStore = true)]
+    () => Results.Ok("You are authorized!"));
 
 // Controllers
 app.MapControllers().RequireCors("AnyOrigin");

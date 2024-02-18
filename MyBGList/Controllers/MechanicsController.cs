@@ -2,6 +2,7 @@ using System.Linq.Dynamic.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MyBGList.Constants;
 using MyBGList.DTO;
 using MyBGList.Models;
 
@@ -54,7 +55,7 @@ public class MechanicsController : ControllerBase
         };
     }
 
-    [Authorize]
+    [Authorize(Roles = RoleNames.Moderator)]
     [HttpPost(Name = "UpdateMechanic")]
     [ResponseCache(CacheProfileName = "no-cache")]
     public async Task<RestDTO<Mechanic>> Post(MechanicDTO model)
@@ -88,7 +89,7 @@ public class MechanicsController : ControllerBase
         };
     }
 
-    [Authorize]
+    [Authorize(Roles = RoleNames.Administrator)]
     [HttpDelete(Name = "DeleteMechanic")]
     [ResponseCache(CacheProfileName = "no-cache")]
     public async Task<RestDTO<Mechanic?>> Delete(int id)

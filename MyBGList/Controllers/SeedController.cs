@@ -11,7 +11,7 @@ using MyBGList.Models.Csv;
 
 namespace MyBGList.Controllers;
 
-// [Authorize]
+[Authorize(Roles = RoleNames.Administrator)]
 [Route("[controller]/[action]")]
 [ApiController]
 public class SeedController
@@ -208,6 +208,6 @@ public class SeedController
         {
             RolesCreated = rolesCreated,
             UsersAddedToRoles = usersAddedToRoles
-       });
+        });
     }
-}   
+}

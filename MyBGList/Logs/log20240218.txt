@@ -1,2 +1,12 @@
 12:15:48 [INF] [Redouanes-MacBook-Pro #7] User TestModerator (test-moderator@email.com) has been created.
 12:16:14 [INF] [Redouanes-MacBook-Pro #21] User TestAdministrator (test-administrator@email.com) has been created.
+13:29:25 [WRN] [Redouanes-MacBook-Pro #10] Invalid password for user.
+13:31:34 [INF] [Redouanes-MacBook-Pro #31] User user (user@example.com) has been created.
+13:35:17 [WRN] [Redouanes-MacBook-Pro #50] Invalid password for user.
+13:35:50 [WRN] [Redouanes-MacBook-Pro #49] Invalid password for user.
+13:41:21 [WRN] [Redouanes-MacBook-Pro #19] Invalid password for user.
+13:42:25 [WRN] [Redouanes-MacBook-Pro #3] Invalid password for user.
+13:45:15 [WRN] [Redouanes-MacBook-Pro #14] Invalid password for user.
+13:51:08 [INF] [Redouanes-MacBook-Pro #23] User TestUser (test-user@email.com) has been created.
+13:51:26 [INF] [Redouanes-MacBook-Pro #24] User TestModerator (test-moderator@email.com) has been created.
+13:51:41 [INF] [Redouanes-MacBook-Pro #26] User TestAdministrator (test-administrator@email.com) has been created.
