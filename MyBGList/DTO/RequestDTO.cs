@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using MyBGList.Attributes;
+using DefaultValueAttribute = System.ComponentModel.DefaultValueAttribute;
 
 namespace MyBGList.DTO;
 

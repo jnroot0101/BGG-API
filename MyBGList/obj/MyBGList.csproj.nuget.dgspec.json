@@ -42,6 +42,18 @@
               "target": "Package",
               "version": "[30.0.1, )"
             },
+            "HotChocolate.AspNetCore": {
+              "target": "Package",
+              "version": "[12.15.2, )"
+            },
+            "HotChocolate.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[12.15.2, )"
+            },
+            "HotChocolate.Data.EntityFramework": {
+              "target": "Package",
+              "version": "[12.15.2, )"
+            },
             "Microsoft.ApplicationInsights.AspNetCore": {
               "target": "Package",
               "version": "[2.21.0, )"
