@@ -1,6 +1,5 @@
 using System.Data;
 using System.Diagnostics;
-using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -14,6 +13,7 @@ using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 using MyBGList.Constants;
 using MyBGList.Models;
+using MyBGList.QraphQL;
 using MyBGList.Swagger;
 using Serilog;
 using Serilog.Sinks.MSSqlServer;
@@ -138,6 +138,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
+builder.Services.AddGraphQLServer()
+    .AddAuthorization()
+    .AddQueryType<Query>()
+    .AddMutationType<Mutation>()
+    .AddProjections()
+    .AddFiltering()
+    .AddSorting();
+
 builder.Services.AddIdentity<ApiUser, IdentityRole>(options =>
     {
         options.Password.RequireDigit = true;
@@ -209,6 +217,8 @@ app.UseResponseCaching();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapGraphQL();
 
 app.Use((context, next) =>
 {
