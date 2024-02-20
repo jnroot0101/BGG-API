@@ -7,6 +7,7 @@ using Microsoft.Extensions.Caching.Memory;
 using MyBGList.Constants;
 using MyBGList.DTO;
 using MyBGList.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace MyBGList.Controllers;
 
@@ -30,8 +31,12 @@ public class BoardGamesController : ControllerBase
 
     [HttpGet(Name = "GetBoardGames")]
     [ResponseCache(CacheProfileName = "Any-60")]
+    [SwaggerOperation(
+        Summary = "Get a list of board games.",
+        Description = "Retrieves a list of board games with custom paging, sorting and filtering rules.")]
     public async Task<RestDTO<BoardGame[]>> Get(
-        [FromQuery] RequestDTO<BoardGameDto> input)
+        [FromQuery] [SwaggerParameter("A DTO object that can be used to customize data-retrieval parameters.")]
+        RequestDTO<BoardGameDto> input)
     {
         _logger.LogInformation(CustomLogEvents.BoardGamesController_Get, "Get method started.");
 
@@ -74,6 +79,9 @@ public class BoardGamesController : ControllerBase
 
     [HttpGet("{id}")]
     [ResponseCache(CacheProfileName = "Any-60")]
+    [SwaggerOperation(
+        Summary = "Get a single board game.",
+        Description = "Retrieves a single board game with a given Id.")]
     public async Task<RestDTO<BoardGame?>> GetBoardGame(int id)
     {
         _logger.LogInformation(CustomLogEvents.BoardGamesController_Get,
@@ -111,6 +119,9 @@ public class BoardGamesController : ControllerBase
     [Authorize(Roles = RoleNames.Moderator)]
     [HttpPost(Name = "UpdateBoardGame")]
     [ResponseCache(CacheProfileName = "no-cache")]
+    [SwaggerOperation(
+        Summary = "Updates a board game.",
+        Description = "Updates the board game's data.")]
     public async Task<RestDTO<BoardGame?>> Post(BoardGameDto model)
     {
         var boardgame = await _context.BoardGames
@@ -147,6 +158,8 @@ public class BoardGamesController : ControllerBase
     [Authorize(Roles = RoleNames.Administrator)]
     [HttpDelete(Name = "DeleteBoardGame")]
     [ResponseCache(CacheProfileName = "no-cache")]
+    [SwaggerOperation(Summary = "Deletes a board game.",
+        Description = "Deletes a board game from the database.")]
     public async Task<RestDTO<BoardGame?>> Delete(int id)
     {
         var boardgame = await _context.BoardGames

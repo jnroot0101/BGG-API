@@ -19,6 +19,7 @@ using MyBGList.QraphQL;
 using MyBGList.Swagger;
 using Serilog;
 using Serilog.Sinks.MSSqlServer;
+using Swashbuckle.AspNetCore.Annotations;
 using Path = System.IO.Path;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -107,6 +108,8 @@ builder.Services.AddControllers(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
+    options.EnableAnnotations();
+
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 
@@ -279,14 +282,32 @@ app.MapGet("/cod/test",
                      "<noscript>Your client does not support JavaScript</noscript>",
             "text/html"));
 app.MapGet("/auth/test/1",
-    [Authorize] [EnableCors("Any-origin")] [ResponseCache(NoStore = true)]
+    [Authorize]
+    [EnableCors("Any-origin")]
+    [ResponseCache(NoStore = true)]
+    [SwaggerOperation(
+        Summary = "Auth test #1 (authenticated users).",
+        Description = "Returns 200 - OK if called by " +
+                      "an authenticated user regardless of its role(s).")]
     () => Results.Ok("You are authorized!"));
 app.MapGet("/auth/test/2",
-    [Authorize(Roles = RoleNames.Moderator)] [EnableCors("AnyOrigin")] [ResponseCache(NoStore = true)]
+    [Authorize(Roles = RoleNames.Moderator)]
+    [EnableCors("AnyOrigin")]
+    [ResponseCache(NoStore = true)]
+    [SwaggerOperation(
+        Summary = "Auth test #2 (Moderator role).",
+        Description = "Returns 200 - OK status code if called by " +
+                      "an authenticated user assigned to the Moderator role.")]
     () => Results.Ok("You are authorized!"));
 
 app.MapGet("/auth/test/3",
-    [Authorize(Roles = RoleNames.Administrator)] [EnableCors("AnyOrigin")] [ResponseCache(NoStore = true)]
+    [Authorize(Roles = RoleNames.Administrator)]
+    [EnableCors("AnyOrigin")]
+    [ResponseCache(NoStore = true)]
+    [SwaggerOperation(
+        Summary = "Auth test #3 (Administrator role).",
+        Description = "Returns 200 - OK if called by " +
+                      "an authenticated user assigned to the Administrator role.")]
     () => Results.Ok("You are authorized!"));
 
 // Controllers
