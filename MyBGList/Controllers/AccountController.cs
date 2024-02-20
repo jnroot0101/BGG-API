@@ -29,6 +29,12 @@ public class AccountController : ControllerBase
         _signInManager = signInManager;
     }
 
+    /// <summary>
+    ///     Registers a new user.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns>A 201 - Created Status Code in case of success.</returns>
+    /// <exception cref="Exception"></exception>
     [HttpPost]
     [ResponseCache(CacheProfileName = "no-cache")]
     public async Task<ActionResult> Register(RegisterDTO input)
@@ -71,6 +77,12 @@ public class AccountController : ControllerBase
         }
     }
 
+    /// <summary>
+    ///     Performs a user login.
+    /// </summary>
+    /// <param name="input">A DTO containing the user's credentials.</param>
+    /// <returns>The Bearer Token (in JWT format).</returns>
+    /// <exception cref="Exception"></exception>
     [HttpPost]
     [ResponseCache(CacheProfileName = "no-cache")]
     public async Task<ActionResult> Login(LoginDTO input)

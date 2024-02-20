@@ -1,5 +1,6 @@
 using System.Data;
 using System.Diagnostics;
+using System.Reflection;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -18,6 +19,7 @@ using MyBGList.QraphQL;
 using MyBGList.Swagger;
 using Serilog;
 using Serilog.Sinks.MSSqlServer;
+using Path = System.IO.Path;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -105,6 +107,9 @@ builder.Services.AddControllers(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+
     options.ParameterFilter<SortColumnFilter>();
     options.ParameterFilter<SortOrderFilter>();
 

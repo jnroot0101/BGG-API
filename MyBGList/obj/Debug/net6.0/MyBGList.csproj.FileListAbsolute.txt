@@ -136,3 +136,5 @@
 /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/bin/Debug/net6.0/Grpc.Net.Client.dll
 /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/bin/Debug/net6.0/Grpc.Net.ClientFactory.dll
 /Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/bin/Debug/net6.0/Grpc.Net.Common.dll
+/Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/bin/Debug/net6.0/MyBGList.xml
+/Users/redouanejnah/Documents/DWM/ASP.NET Core/MyBGList/MyBGList/obj/Debug/net6.0/MyBGList.xml
