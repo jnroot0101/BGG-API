@@ -289,6 +289,10 @@ app.MapGet("/auth/test/1",
         Summary = "Auth test #1 (authenticated users).",
         Description = "Returns 200 - OK if called by " +
                       "an authenticated user regardless of its role(s).")]
+    [SwaggerResponse(StatusCodes.Status200OK,
+        "Authorized")]
+    [SwaggerResponse(StatusCodes.Status401Unauthorized,
+        "Not authorized")]
     () => Results.Ok("You are authorized!"));
 app.MapGet("/auth/test/2",
     [Authorize(Roles = RoleNames.Moderator)]
