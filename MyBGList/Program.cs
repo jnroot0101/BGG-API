@@ -126,20 +126,7 @@ builder.Services.AddSwaggerGen(options =>
         Scheme = "bearer"
     });
 
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            },
-            Array.Empty<string>()
-        }
-    });
+    options.OperationFilter<AuthRequirementFilter>();
 });
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
