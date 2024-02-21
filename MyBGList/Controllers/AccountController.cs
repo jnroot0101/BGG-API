@@ -40,6 +40,9 @@ public class AccountController : ControllerBase
     /// <exception cref="Exception"></exception>
     [HttpPost]
     [ResponseCache(CacheProfileName = "no-cache")]
+    [ProducesResponseType(typeof(string), 201)]
+    [ProducesResponseType(typeof(BadRequestObjectResult), 400)]
+    [ProducesResponseType(typeof(ProblemDetails), 500)]
     public async Task<ActionResult> Register(RegisterDTO input)
     {
         try
@@ -91,6 +94,9 @@ public class AccountController : ControllerBase
     /// <exception cref="Exception"></exception>
     [HttpPost]
     [ResponseCache(CacheProfileName = "no-cache")]
+    [ProducesResponseType(typeof(string), 200)]
+    [ProducesResponseType(typeof(BadRequestObjectResult), 400)]
+    [ProducesResponseType(typeof(ProblemDetails), 401)]
     public async Task<ActionResult> Login(LoginDTO input)
     {
         try
