@@ -129,6 +129,7 @@ builder.Services.AddSwaggerGen(options =>
     options.OperationFilter<AuthRequirementFilter>();
     options.DocumentFilter<DocumentFilter>();
     options.RequestBodyFilter<PasswordRequestFilter>();
+    options.SchemaFilter<CustomKeyValueFilter>();
 });
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
+using MyBGList.Attributes;
 using MyBGList.Constants;
 using MyBGList.DTO;
 using MyBGList.Models;
@@ -82,7 +83,9 @@ public class BoardGamesController : ControllerBase
     [SwaggerOperation(
         Summary = "Get a single board game.",
         Description = "Retrieves a single board game with a given Id.")]
-    public async Task<RestDTO<BoardGame?>> GetBoardGame(int id)
+    public async Task<RestDTO<BoardGame?>> GetBoardGame(
+        [CustomKeyValue("x-test-3", "value 3")]
+        int id)
     {
         _logger.LogInformation(CustomLogEvents.BoardGamesController_Get,
             "GetBoardGame method started.");
