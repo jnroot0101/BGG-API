@@ -127,6 +127,8 @@ builder.Services.AddSwaggerGen(options =>
     });
 
     options.OperationFilter<AuthRequirementFilter>();
+    options.DocumentFilter<DocumentFilter>();
+    options.RequestBodyFilter<PasswordRequestFilter>();
 });
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -273,7 +275,7 @@ app.MapGet("/auth/test/1",
     [EnableCors("Any-origin")]
     [ResponseCache(NoStore = true)]
     [SwaggerOperation(
-        Tags = new[]{"Auth"},
+        Tags = new[] { "Auth" },
         Summary = "Auth test #1 (authenticated users).",
         Description = "Returns 200 - OK if called by " +
                       "an authenticated user regardless of its role(s).")]
@@ -288,7 +290,7 @@ app.MapGet("/auth/test/2",
     [EnableCors("AnyOrigin")]
     [ResponseCache(NoStore = true)]
     [SwaggerOperation(
-        Tags = new[]{"Auth"},
+        Tags = new[] { "Auth" },
         Summary = "Auth test #2 (Moderator role).",
         Description = "Returns 200 - OK status code if called by " +
                       "an authenticated user assigned to the Moderator role.")]
@@ -299,7 +301,7 @@ app.MapGet("/auth/test/3",
     [EnableCors("AnyOrigin")]
     [ResponseCache(NoStore = true)]
     [SwaggerOperation(
-        Tags = new[]{"Auth"},
+        Tags = new[] { "Auth" },
         Summary = "Auth test #3 (Administrator role).",
         Description = "Returns 200 - OK if called by " +
                       "an authenticated user assigned to the Administrator role.")]
